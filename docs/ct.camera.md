@@ -122,7 +122,7 @@ No `ct.camera.realign` | With `ct.camera.realign`
 
 #### Example: Realign UI elements in a room
 
-On Draw code of your UI room:
+Frame end code of your UI room:
 
 ```js
 ct.camera.realign(this);
