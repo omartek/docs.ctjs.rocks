@@ -49,8 +49,6 @@ ct.emitters.append(this, 'HeartTrail', {
 
 ## Opzioni aggiuntive
 
-You may have noticed that these three methods accept an additional argument (e.g. `ct.emitters.fire('NameOfAnEffect', x, y, options);`). It is an object, and has properties for tweaking an effect's look and behavior:
-
 Avrai notato che questi tre metodi accettano un argomento aggiuntivo (ad es `ct.emitters.fire('NameOfAnEffect', x, y, options);`. ). Essendo un oggetto ha proprietà per modificare l'aspetto e il comportamento di un effetto:
 
 * `scale` — ridimensionare l'oggetto con valori `x` e `y`.
@@ -62,8 +60,6 @@ Avrai notato che questi tre metodi accettano un argomento aggiuntivo (ad es `ct.
 * `isUi` — se impostato su `true`, utilizzerà la scala temporale dei livelli dell'interfaccia utente. Ciò influisce sul modo in cui un effetto viene simulato durante gli effetti al rallentatore e le pause di gioco.
 * `depth` — la profondità (parametro `Depth`) della sequenza. Il valore predefinito è `Infinity` (sarà sopra tutto).
 * `room` — la stanza a cui applicare l'effetto. Il valore predefinito è il livello principale corrente (ct.room). Non ha effetto con `ct.emitters.attach`, poiché specifichi già il genitore di un effetto nel primo argomento.
-
-Each property is optional. An example: if we would like to create a smaller reddish effect above a copy that stays at the same depth as the copy, we would write:
 
 Ogni proprietà è facoltativa. Un esempio: se volessimo creare un effetto rossastro più piccolo sopra una copia che rimane alla stessa profondità della copia, scriveremo:
 
@@ -86,8 +82,6 @@ ct.emitters.follow(this, 'Debuff', {
 
 Da soli, gli effetti creati funzionano in modo autonomo: si fermeranno automaticamente quando il loro tempo sarà scaduto, o quando il loro proprietario verrà distrutto, lasciando una bella scia di particelle. Ma a volte abbiamo bisogno di ripulire completamente l'effetto, o metterlo in pausa e riprenderlo più tardi, o interromperlo completamente prima del  solito.
 
-Each of the `ct.emitters.fire`, `ct.emitters.append` and `ct.emitters.follow` return a reference to the created effect which we can use:
-
 Ciascuno dei `ct.emitters.fire`, `ct.emitters.append` e `ct.emitters.follow` restituisce un riferimento all'effetto creato che possiamo utilizzare:
 
 ```js
@@ -98,14 +92,6 @@ this.shied = ct.emitters.append(this, 'BubbleEffect');
 this.shield.stop();
 this.shield = null; // Eliminare l'effetto per liberare memoria
 ```
-
-There is a number of properties we can use in such way:
-
-* `emitter.stop();` prevents spawning new particles. When previous particles disappear, the emitter tandem will destroy itself.
-* `emitter.clear();` instantly clears all the particles.
-* `emitter.kill` is a property similar to copies' `kill` property: setting it to `true` will instantly destroy the effect with all its particles.
-* `emitter.frozen` stops updating the effect if set to `true`.
-* `emitter.pause()` stops spawning new particles, but the remaining particles are still animated. You can resume the spawning back with `emitter.resume();`.
 
 Ci sono un certo numero di proprietà che possiamo usare in questo modo:
 
